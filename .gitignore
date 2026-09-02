@@ -11,3 +11,6 @@ images/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# 안 쓰는 파일 임시 보관
+_unused/
