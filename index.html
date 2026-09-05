@@ -53,9 +53,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:radial-gradient(130% 95% at 76% 14%,rgba(0,0,0,0) 0%,rgba(12,13,14,.7) 60%,#141618 100%)}
 .hero-inner{position:relative;padding:0 var(--pad) clamp(46px,9vh,104px);max-width:1560px;width:100%}
 .hero h1{margin:0;font-size:clamp(46px,11.5vw,150px);line-height:.86;font-weight:800;letter-spacing:-.035em;text-transform:uppercase}
-.hero .ko{margin-top:12px;font-size:15px;letter-spacing:.3em;color:var(--muted)}
-.hero .role{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-top:20px;font-size:15px;color:var(--ink-dim);max-width:54ch}
-.hero .role b{font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+.hero .ko{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:16px;font-size:14.5px;color:var(--ink-dim)}
+.hero .ko .nm{letter-spacing:.24em}
+.hero .ko .sep{width:1px;height:13px;background:var(--line);flex:none}
+.hero .ko .mail{padding:0;color:var(--muted);letter-spacing:.01em;border-bottom:1px solid transparent;transition:.16s}
+.hero .ko .mail:hover{color:var(--accent);border-bottom-color:var(--accent-deep)}
+.hero .role{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 22px;margin-top:26px}
+.hero .role b{flex:none;margin-top:5px;font-weight:600;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+.hero .role .htag{font-size:16.5px;line-height:1.55;color:var(--ink-dim);letter-spacing:.005em;max-width:60ch}
+.hero .role .htag span{display:block;white-space:nowrap}
+@media(max-width:560px){.hero .ko .sep{display:none}.hero .role .htag{font-size:14.5px}.hero .role .htag span{white-space:normal}}
 .hero-scroll{margin-top:32px;font-size:12px;letter-spacing:.14em;color:var(--muted);display:flex;align-items:center;gap:12px;text-transform:uppercase}
 .hero-scroll i{display:block;width:44px;height:1px;background:var(--muted)}
 
@@ -66,16 +73,45 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .section-head .count{font-size:12px;letter-spacing:.1em;color:var(--muted);margin-left:auto;text-transform:uppercase}
 
 /* ---------- about ---------- */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(26px,5vw,72px)}
-.about-copy p{margin:0 0 18px;max-width:60ch;color:var(--ink-dim);font-size:16.5px}
-.about-copy p:first-child{color:var(--ink);font-size:19px;line-height:1.55}
-.facts{margin:0;border-top:1px solid var(--line-soft)}
-.fact{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:14px}
-.fact dt{width:74px;flex:none;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-size:12px;padding-top:3px}
-.fact dd{margin:0;color:var(--ink-dim)}
 .linkbtn{border-bottom:1px solid var(--accent-deep);transition:.15s}
 .linkbtn:hover{border-bottom-color:var(--accent);color:var(--accent)}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* 프로필 + 소개문 */
+.about-top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.portrait{margin:0;width:clamp(120px,13vw,176px);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:var(--panel);border:1px solid var(--line-soft);flex:none}
+.portrait img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.portrait img.ready{opacity:1}
+.who h3{margin:0;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.015em}
+.who h3 span{color:var(--muted);font-weight:400;font-size:.62em;letter-spacing:.12em;margin-left:10px;
+  vertical-align:.14em}
+.who .role{margin:8px 0 0;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.who .focus{margin:6px 0 0;font-size:14px;color:var(--muted);word-break:keep-all}
+.who .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:14px 0 0;font-size:14px;color:var(--ink-dim)}
+.who .meta .dot{width:3px;height:3px;border-radius:50%;background:var(--line);flex:none}
+.about-copy{margin-top:26px}
+.about-copy p{margin:0 0 16px;max-width:34em;color:var(--ink);font-size:clamp(17px,1.4vw,19.5px);
+  line-height:1.85;word-break:keep-all;text-wrap:balance}
+.about-copy p:last-child{margin-bottom:0}
+
+/* Education / Skills / Awards */
+.about-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3.5vw,56px);
+  margin-top:clamp(40px,6vh,72px);padding-top:clamp(28px,4vh,44px);border-top:1px solid var(--line-soft)}
+.col h4{margin:0 0 16px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{display:flex;gap:14px;padding:7px 0;font-size:14.5px;color:var(--ink-dim);word-break:keep-all}
+.col li .when{flex:none;width:60px;color:var(--muted);font-variant-numeric:tabular-nums;font-size:13.5px;padding-top:1px}
+.skillset{margin-bottom:18px}
+.skillset:last-child{margin-bottom:0}
+.skillset b{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:7px;opacity:.85}
+.skillset p{margin:0;font-size:14.5px;line-height:1.7;color:var(--ink-dim)}
+@media(max-width:900px){.about-cols{grid-template-columns:1fr 1fr}.col.awards{grid-column:1/-1}}
+@media(max-width:620px){
+  .about-top{grid-template-columns:1fr;gap:22px}
+  .about-cols{grid-template-columns:1fr;gap:34px}
+  .col.awards{grid-column:auto}
+}
 
 /* ---------- works ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
@@ -181,16 +217,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="hero-inner">
     <h1 id="heroName"></h1>
     <div class="ko" id="heroKo"></div>
-    <div class="role"><b id="heroRole"></b><span id="heroTag"></span></div>
+    <div class="role"><b id="heroRole"></b><span class="htag" id="heroTag"></span></div>
     <div class="hero-scroll"><i></i><span>Scroll</span></div>
   </div>
 </section>
 
 <section class="section" id="about">
   <div class="section-head"><h2>About</h2></div>
-  <div class="about-grid">
-    <div class="about-copy" id="aboutCopy"></div>
-    <dl class="facts" id="aboutFacts"></dl>
+  <div class="about-top">
+    <figure class="portrait" id="portrait" hidden><img id="aboutPhoto" alt=""></figure>
+    <div>
+      <div class="who" id="aboutWho"></div>
+      <div class="about-copy" id="aboutCopy"></div>
+    </div>
+  </div>
+  <div class="about-cols">
+    <div class="col"><h4>Education</h4><ul id="aboutEdu"></ul></div>
+    <div class="col"><h4>Skills</h4><div id="aboutSkills"></div></div>
+    <div class="col awards"><h4>Awards</h4><ul id="aboutAwards"></ul></div>
   </div>
 </section>
 
@@ -292,7 +336,7 @@ function bump(key){
 function isNew(dateStr){
   if(!dateStr) return false;
   const m=dateStr.match(/^(\d{4})(?:-(\d{2}))?/); if(!m) return false;
-  const d=new Date(+m[1], m[2]? +m[2] : 0, 1);
+  const d=new Date(+m[1], m[2]? (+m[2]-1) : 0, 1);   // 월은 0부터라 -1
   return (Date.now()-d.getTime()) < 60*24*3600*1000 && d.getTime()<=Date.now()+31*24*3600*1000;
 }
 function fmtDate(d){ return d ? d.replace("-", ".") : ""; }
@@ -300,9 +344,18 @@ function fmtDate(d){ return d ? d.replace("-", ".") : ""; }
 /* ---------- 헤더 / About ---------- */
 $("#brand").innerHTML = SITE.name.replace(/\s(\S+)$/," <em>$1</em>");
 $("#heroName").textContent = SITE.name;
-$("#heroKo").textContent   = SITE.nameKo || "";
+(function heroKo(){
+  const box=$("#heroKo"); box.innerHTML="";
+  if(SITE.nameKo){ const n=el("span","nm"); n.textContent=SITE.nameKo; box.appendChild(n); }
+  if(SITE.nameKo && SITE.email) box.appendChild(el("i","sep"));
+  if(SITE.email){ const m=el("button","mail"); m.type="button"; m.textContent=SITE.email;
+    m.title="클릭하면 복사됩니다"; m.onclick=copyMail; box.appendChild(m); }
+})();
 $("#heroRole").textContent = SITE.role;
-$("#heroTag").textContent  = SITE.tagline;
+(function heroTag(){
+  const box=$("#heroTag"); box.innerHTML="";
+  [].concat(SITE.tagline||[]).forEach(t=>{ const n=el("span"); n.textContent=t; box.appendChild(n); });
+})();
 $("#yr").textContent = new Date().getFullYear();
 $("#ftName").textContent = SITE.name;
 if(SITE.favicon){
@@ -314,18 +367,66 @@ if(SITE.favicon){
   im.src=enc(SITE.hero);
 })();
 
+/* --- About : 프로필 --- */
+(function aboutWho(){
+  const P = SITE.profile || {}, box = $("#aboutWho");
+  const h = el("h3"); h.textContent = P.nameEn || SITE.name || "";
+  if(P.nameKo){ const k=el("span"); k.textContent=P.nameKo; h.appendChild(k); }
+  box.appendChild(h);
+  if(P.role){ const r=el("p","role"); r.textContent=P.role; box.appendChild(r); }
+  if(P.focus){ const f=el("p","focus"); f.textContent=P.focus; box.appendChild(f); }
+
+  const meta=el("div","meta"); let any=false;
+  if(P.born){ const b=el("span"); b.textContent=P.born; meta.appendChild(b); any=true; }
+  if(SITE.email){
+    if(any) meta.appendChild(el("i","dot"));
+    const m=el("button","linkbtn"); m.type="button"; m.textContent=SITE.email;
+    m.title="클릭하면 복사됩니다"; m.onclick=copyMail; meta.appendChild(m); any=true;
+  }
+  (SITE.links||[]).filter(l=>l.url).forEach(l=>{
+    if(any) meta.appendChild(el("i","dot"));
+    const a=el("a","linkbtn"); a.href=l.url; a.target="_blank"; a.rel="noopener";
+    a.textContent=l.label; meta.appendChild(a); any=true;
+  });
+  if(any) box.appendChild(meta);
+
+  if(P.photo){
+    const fig=$("#portrait"), im=$("#aboutPhoto");
+    im.alt=(P.nameEn||"")+" 프로필 사진";
+    im.onload=()=>{ fig.hidden=false; im.classList.add("ready"); };
+    im.onerror=()=>{ fig.remove(); };          // 사진 파일이 없으면 조용히 사라집니다
+    im.src=enc(P.photo);
+  } else $("#portrait").remove();
+})();
+
 (SITE.about||[]).forEach(t=>{ const p=el("p"); p.textContent=t; $("#aboutCopy").appendChild(p); });
 
-const facts = (SITE.facts||[]).slice();
-(SITE.links||[]).filter(l=>l.url).forEach(l=>facts.push({k:l.label, v:'<a class="linkbtn" href="'+l.url+'" target="_blank" rel="noopener">'+l.url.replace(/^https?:\/\//,"")+'</a>'}));
-facts.forEach(f=>{
-  const row=el("div","fact"), dt=el("dt"), dd=el("dd");
-  dt.textContent=f.k;
-  if(f.v==="MAIL"){
-    const b=el("button","linkbtn"); b.textContent=SITE.email; b.onclick=copyMail; dd.appendChild(b);
-  } else dd.innerHTML=f.v;
-  row.append(dt,dd); $("#aboutFacts").appendChild(row);
-});
+/* --- About : Education / Skills / Awards --- */
+function fillList(sel, rows){
+  const ul=$(sel); const list=rows||[];
+  if(!list.length){ ul.closest(".col").remove(); return; }
+  list.forEach(r=>{
+    const li=el("li");
+    const w=el("span","when"); w.textContent=r.when||"";
+    const t=el("span"); t.textContent=r.what||"";
+    li.append(w,t); ul.appendChild(li);
+  });
+}
+fillList("#aboutEdu", SITE.education);
+fillList("#aboutAwards", SITE.awards);
+(function skills(){
+  const box=$("#aboutSkills"), sets=SITE.skills||[];
+  if(!sets.length){ box.closest(".col").remove(); return; }
+  sets.forEach(s=>{
+    const d=el("div","skillset");
+    if(s.group){ const b=el("b"); b.textContent=s.group; d.appendChild(b); }
+    /* 제품명이 줄 중간에서 안 끊기도록 이름 안쪽 공백은 줄바꿈 없는 공백으로 */
+    const p=el("p");
+    p.textContent=(s.items||[]).map(t=>t.replace(/ /g,"\u00A0")).join(" · ");
+    d.appendChild(p);
+    box.appendChild(d);
+  });
+})();
 
 /* ---------- 푸터 버튼 ---------- */
 (function(){

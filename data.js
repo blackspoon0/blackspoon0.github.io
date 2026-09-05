@@ -16,7 +16,11 @@ const SITE = {
   name:     "CHO EUNSEO",
   nameKo:   "조은서",
   role:     "3D Artist",
-  tagline:  "게임에 들어가는 물건과 공간을 만듭니다.",
+  /* 이름 아래 한 줄 소개. 배열로 적으면 줄바꿈됩니다. */
+  tagline: [
+    "Always giving my best in every project,",
+    "Constantly growing to next step"
+  ],
   email:    "blackspoon0@gmail.com",
 
   /* 첫 화면 배경 */
@@ -25,17 +29,45 @@ const SITE = {
   /* 탭 아이콘 */
   favicon: "favicon.png",
 
+  /* About 본문. 한 줄이 한 문단입니다. 첫 문단이 가장 크게 보입니다. */
   about: [
-    "하드서피스 프롭과 환경 애셋을 중심으로 작업하는 3D 아티스트입니다.",
-    "모델링부터 텍스처, 라이팅, 최종 렌더까지 한 덩어리로 다루는 방식을 좋아합니다.",
-    "이 페이지는 그동안 쌓인 개인 작업을 시간 순서로 모아 둔 아카이브입니다. 카드를 누르면 크게 볼 수 있습니다."
+    "기술적 제약과 제작 기준 속에서도 디테일과 완성도를 유지하는 것이 배경 아티스트의 역량이라고 생각하며, 이를 위해 꾸준히 발전해 나가고 있습니다."
   ],
 
-  facts: [
-    { k: "Role",   v: "3D Artist / Prop &amp; Environment" },
-    { k: "Focus",  v: "Hard-surface, Props, Environment, Lighting" },
-    { k: "Tools",  v: "Maya, ZBrush, Substance 3D Painter, Marmoset, Unreal Engine, Unity" },
-    { k: "Email",  v: "MAIL" }   // "MAIL" 이라고 두면 클릭 시 복사되는 이메일 버튼이 됩니다.
+  /* About 맨 위 프로필 블록 */
+  profile: {
+    nameEn: "Cho Eunseo",
+    nameKo: "조은서",
+    role:   "3D Artist / Prop & Environment",
+    focus:  "Hard-surface, Props, Environment, Lighting",
+    born:   "1999.12",           // 빼려면 "" 로 두세요
+    /* 프로필 사진. 파일이 없으면 사진 없이 나옵니다.
+       폴더 맨 위(index.html 옆)에 profile.jpg 를 넣으면 바로 뜹니다. */
+    photo:  "profile.jpg"
+  },
+
+  /* 학력 — 줄을 추가하거나 지우면 그대로 반영됩니다. */
+  education: [
+    { when: "2023.03", what: "동양미래대학교 졸업" },
+    { when: "2024.03", what: "동양미래대학교 학사 졸업" },
+    { when: "2024.05", what: "Study" }
+  ],
+
+  /* 사용 툴 — group 은 소제목, items 는 그 아래 목록 */
+  skills: [
+    { group: "3D / Texturing",
+      items: ["3ds Max", "ZBrush", "Substance 3D Painter", "Substance 3D Designer",
+              "Marmoset", "Photoshop"] },
+    { group: "Engine",
+      items: ["Unreal Engine 5", "Unity"] },
+    { group: "Programming",
+      items: ["JavaScript", "Python", "C"] }
+  ],
+
+  /* 수상 */
+  awards: [
+    { when: "2023", what: "스마트프로젝트 경진대회 장려상" },
+    { when: "2022", what: "동양미래EXPO 장려상" }
   ],
 
   /* url 이 비어 있으면 화면에 안 나옵니다. */
@@ -64,6 +96,29 @@ const CATEGORIES = [
     label: "Personal Works",
     dir: "images/Personal",
     groups: [
+      {
+        folder: "202606_Axegun",
+        title:  "Axegun",
+        date:   "2026-06",
+        cover:  "Axegun3.png",
+        files: [
+          "Axegun1.png",
+          "Axegun2.png",
+          "Axegun3.png"
+        ]
+      },
+      {
+        folder: "202604_Sofa",
+        title:  "Sofa",
+        date:   "2026-04",
+        cover:  "Sofa1.png",
+        files: [
+          "Sofa1.png",
+          "Sofa2.png",
+          "Sofa3.png",
+          "Sofa_PBR_Render.png"
+        ]
+      },
       {
         folder: "202602_Knife",
         title:  "Knife",
@@ -164,8 +219,8 @@ const CATEGORIES = [
       {
         folder: "2025_PersonalObjects",
         title:  "Personal Objects",
-        date:   "2025",
-        cover:  "candlestick2.jpg",
+        date:   "2024",
+        cover:  "JewelBox.jpg",
         files: [
           "candlestick2.jpg",
           "candlestick_1.jpg",
@@ -211,8 +266,12 @@ const CATEGORIES = [
         folder: "",
         title:  "Rocks",
         date:   "",
-        cover:  "ZBrush5_Main2.jpg",
+        cover:  "Rock6_Render.jpg",
         files: [
+          "Rock6_Render.jpg",
+          "Rock6_1.png",
+          "Rock6_2.png",
+          "Rock6_3.png",
           "ZBrush5_Main2.jpg",
           "ZBrush5_Main1.jpg",
           "ZBrush5.png",
@@ -246,4 +305,4 @@ const CATEGORIES = [
 ];
 
 /* 아직 비어 있는 폴더 — 이미지를 넣으면 personal groups 에 추가하세요.
-   202608_Gate / 202606_Axegun / 202604_Sofa */
+   202608_Gate */
