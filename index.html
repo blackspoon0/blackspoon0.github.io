@@ -90,8 +90,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .who .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:14px 0 0;font-size:14px;color:var(--ink-dim)}
 .who .meta .dot{width:3px;height:3px;border-radius:50%;background:var(--line);flex:none}
 .about-copy{margin-top:26px}
-.about-copy p{margin:0 0 16px;max-width:34em;color:var(--ink);font-size:clamp(17px,1.4vw,19.5px);
-  line-height:1.85;word-break:keep-all;text-wrap:balance}
+.about-copy p{margin:0 0 16px;max-width:42em;color:var(--ink);font-size:clamp(17px,1.4vw,19.5px);
+  line-height:1.85;word-break:keep-all}
+.about-copy br{line-height:0}
 .about-copy p:last-child{margin-bottom:0}
 
 /* Education / Skills / Awards */
@@ -399,7 +400,14 @@ if(SITE.favicon){
   } else $("#portrait").remove();
 })();
 
-(SITE.about||[]).forEach(t=>{ const p=el("p"); p.textContent=t; $("#aboutCopy").appendChild(p); });
+(SITE.about||[]).forEach(t=>{
+  const p=el("p");
+  String(t).split("\n").forEach((line,i)=>{           // \n 은 줄바꿈으로
+    if(i) p.appendChild(el("br"));
+    p.appendChild(document.createTextNode(line));
+  });
+  $("#aboutCopy").appendChild(p);
+});
 
 /* --- About : Education / Skills / Awards --- */
 function fillList(sel, rows){
