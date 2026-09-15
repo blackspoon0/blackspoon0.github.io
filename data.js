@@ -318,7 +318,6 @@ const CATEGORIES = [
           "Rock6_Render.jpg",
           "Rock6_1.png",
           "Rock6_2.png",
-          "Rock6_3.png",
           "ZBrush5_Main2.jpg",
           "ZBrush5_Main1.jpg",
           "ZBrush5.png",
