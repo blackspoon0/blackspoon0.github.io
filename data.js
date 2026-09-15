@@ -27,6 +27,7 @@ const SITE = {
      heroVideo 가 있으면 영상이 소리 없이 자동 반복 재생되고,
      hero 는 영상이 뜨기 전/재생이 막혔을 때 보이는 정지 이미지입니다. */
   heroVideo: "movies/carriage/Carriage_Movie.mp4",
+  heroVideoDelay: 1500,      // 들어온 뒤 영상이 시작되기까지 기다리는 시간(밀리초)
   hero:      "web/Personal/202510_Carriage/Carriage_West3.jpg",
 
   /* 탭 아이콘 */
@@ -126,14 +127,24 @@ const CATEGORIES = [
         folder: "202606_Axegun",
         title:  "Axegun",
         date:   "2026-06",
-        cover:  "Axegun3.png",
-        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        cover:  "Axegun_Shadow_Camera 2_FullQuality.png",
+        desc:   "도끼와 화승총을 하나로 합친 판타지 무기 콘셉트의 Axegun.\n금속과 목재, 가죽이 한 오브젝트 안에서 서로 구분되어 읽히도록 재질 대비에 신경쓰면서 작업을 진행했습니다.",
         info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
-        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        labels: {
+          "Axegun_Shadow_Camera 1_FullQuality.png": "Side View 01",
+          "Axegun_Shadow_Camera 2_FullQuality.png": "Detail Render",
+          "Axegun_Shadow_Camera 3_FullQuality.png": "Side View 02",
+          "Axegun_Shadow_Camera 4_FullQuality.png": "Grip Detail",
+          "Axegun_Shadow_Camera 5_FullQuality.png": "Blade Detail",
+          "Axegun_Shadow_Camera 6_FullQuality.png": "Mechanism Detail"
+        },
         files: [
-          "Axegun1.png",
-          "Axegun2.png",
-          "Axegun3.png"
+          "Axegun_Shadow_Camera 1_FullQuality.png",
+          "Axegun_Shadow_Camera 2_FullQuality.png",
+          "Axegun_Shadow_Camera 3_FullQuality.png",
+          "Axegun_Shadow_Camera 4_FullQuality.png",
+          "Axegun_Shadow_Camera 5_FullQuality.png",
+          "Axegun_Shadow_Camera 6_FullQuality.png"
         ]
       },
       {
@@ -141,9 +152,9 @@ const CATEGORIES = [
         title:  "Sofa",
         date:   "2026-04",
         cover:  "Sofa1.png",
-        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        desc:   "클래식한 체스터필드 스타일을 콘셉트로 제작된 가죽 소파.\n가죽의 주름과 사용감을 표현하는 데 중점을 두었으며, 면마다 러프니스의 차이점을 주어 실제 가죽처럼 보이도록 노력하였습니다.",
         info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
-        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        labels: { "Sofa_PBR_Render.png": "Texture Breakdown" },
         files: [
           "Sofa1.png",
           "Sofa2.png",
