@@ -1,2 +1,13 @@
-# Auto detect text files and perform LF normalization
+# 텍스트 파일은 줄바꿈 자동 정리
 * text=auto
+
+# 미디어 파일은 절대 변환하지 않습니다 (영상·이미지 깨짐 방지)
+*.mp4  binary
+*.mov  binary
+*.webm binary
+*.m4v  binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.ico  binary

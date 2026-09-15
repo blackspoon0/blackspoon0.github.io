@@ -23,8 +23,11 @@ const SITE = {
   ],
   email:    "blackspoon0@gmail.com",
 
-  /* 첫 화면 배경 */
-  hero: "web/Personal/202504_Fireplace/Fireplace1.jpg",
+  /* 첫 화면 배경.
+     heroVideo 가 있으면 영상이 소리 없이 자동 반복 재생되고,
+     hero 는 영상이 뜨기 전/재생이 막혔을 때 보이는 정지 이미지입니다. */
+  heroVideo: "movies/carriage/Carriage_Movie.mp4",
+  hero:      "web/Personal/202510_Carriage/Carriage_West3.jpg",
 
   /* 탭 아이콘 */
   favicon: "favicon.png",
@@ -89,6 +92,28 @@ const WEB_DIR    = "web";
 
 /* ==========================================================================
    작업 목록   date: "YYYY-MM" 또는 "YYYY" (비우면 날짜 없이 표시)
+   --------------------------------------------------------------------------
+   desc / info 는 카드를 눌렀을 때 오른쪽 패널에 나오는 글입니다.
+   비워 두면 그 부분은 아예 안 보입니다. 이렇게 적으면 됩니다.
+
+     desc: "빅토리안 시대 응접실을 기준으로 제작했습니다.\n" +
+           "타일링 텍스처를 최대한 재사용하면서 실루엣으로 차이를 만들었습니다.",
+
+     info: [
+       { k: "Software", v: "3ds Max · ZBrush · Substance 3D Painter" },
+       { k: "Render",   v: "Marmoset Toolbag" },
+       { k: "Tris",     v: "48,000" },
+       { k: "Texture",  v: "2048 × 2048" }
+     ],
+
+   k 는 왼쪽 항목 이름, v 는 내용입니다. 줄 수는 원하는 만큼 늘리면 됩니다.
+
+   labels 는 오른쪽 썸네일 밑에 붙는 이름입니다. 안 적으면 파일 이름이 그대로 쓰입니다.
+
+     labels: {
+       "Knife1.jpg":    "Detail Render",
+       "Knife_PBR1.jpg":"Texture Breakdown"
+     },
    ========================================================================== */
 
 const CATEGORIES = [
@@ -102,6 +127,9 @@ const CATEGORIES = [
         title:  "Axegun",
         date:   "2026-06",
         cover:  "Axegun3.png",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Axegun1.png",
           "Axegun2.png",
@@ -113,6 +141,9 @@ const CATEGORIES = [
         title:  "Sofa",
         date:   "2026-04",
         cover:  "Sofa1.png",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Sofa1.png",
           "Sofa2.png",
@@ -124,7 +155,10 @@ const CATEGORIES = [
         folder: "202602_Knife",
         title:  "Knife",
         date:   "2026-02",
-        cover:  "Knife1.jpg",
+        cover:  "Knife5.jpg",
+        desc:   "황폐한 세계관을 콘셉트로 제작된 Post Apocalypse Knife.\n여러 파츠 오브젝트를 각각 제작한 후 ZBrush에서 결합하여 하나의 메쉬로 완성하는 작업 파이프라인을 경험했습니다.",
+        info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Knife1.jpg",
           "Knife2.jpg",
@@ -139,7 +173,10 @@ const CATEGORIES = [
         folder: "202512_Waterwheel",
         title:  "Waterwheel",
         date:   "2025-12",
-        cover:  "Waterwheel1.png",
+        cover:  "Waterwheel3.png",
+        desc:   "중세 시대의 물레방아로, 거친 석재 원판과 목재 프레임, 철제 보강 파츠가 결합된 구조를 통해 묵직한 질감을 표현한 오브젝트.",
+        info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Waterwheel1.png",
           "Waterwheel2.png",
@@ -154,8 +191,15 @@ const CATEGORIES = [
         folder: "202510_Carriage",
         title:  "Carriage",
         date:   "2025-10",
-        cover:  "Carriage1.png",
+        cover:  "Carriage_West3.png",
+        desc:   "중세 시대를 콘셉트로 제작된 마차 오브젝트로, 목재와 철제 프레임, 마모된 질감을 구현\n\nZBrush를 활용해 주요 디테일을 직접 스컬핑한 후 이를 실제 언리얼 맵에 적용하는 과정을 경험했습니다.",
+        info:   [{ k: "Tools", v: "3ds Max / ZBrush / Substance Painter / Marmoset / Unreal Engine 5" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
+          /* 영상은 이렇게 적습니다. poster 는 썸네일로 쓸 이미지입니다. */
+          { video: "movies/carriage/Carriage_Movie.mp4",
+            poster: "Carriage_West3.png",
+            label:  "Turntable" },
           "Carriage1.png",
           "Carriage2.png",
           "Carriage3.png",
@@ -175,6 +219,9 @@ const CATEGORIES = [
         title:  "Coffee Machine",
         date:   "2025-06",
         cover:  "CoffeeMachine1.png",
+        desc:   "레트로 감성의 커피머신과 토스터를 중심으로 구성된 주방 씬\n두 개의 메인 오브젝트를 중심으로 씬을 구성하는 방식을 익혔으며, 갓레이(God Ray)를 활용해 자연광의 분위기를 연출하였습니다.",
+        info:   [{ k: "Tools", v: "3ds Max / Substance Painter / Marmoset / Unreal Engine 5" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "CoffeeMachine1.png",
           "CoffeeMachine2.png",
@@ -190,6 +237,9 @@ const CATEGORIES = [
         title:  "Fireplace",
         date:   "2025-04",
         cover:  "Fireplace1.jpg",
+        desc:   "고전적인 유럽풍 인테리어를 콘셉트로 한 벽난로 씬\n다양한 오브젝트를 개별 제작하여 하나의 공간으로 구성하는 환경 제작 과정을 경험, 언리얼 엔진에서 조명과 포그를 활용해 공간의 분위기를 표현하는 매핑 작업을 진행하였습니다.",
+        info:   [{ k: "Tools", v: "3ds Max / Substance Painter / Marmoset / Unreal Engine 5" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Fireplace1.jpg",
           "Fireplace2.jpg",
@@ -205,6 +255,9 @@ const CATEGORIES = [
         title:  "Sci-fi Environment",
         date:   "2025-02",
         cover:  "Scifi_1.png",
+        desc:   "SF 우주 기지 콘셉트의 복도 맵, 반복 구조의 모듈형 패널과 중앙 게이트로 구성\n\n게이트, 벽, 천장, 바닥의 4가지 파트로 나누어 모듈형 방식으로 제작하는 과정을 익혔으며, Emissive와 Decal 등 요소를 활용해 디테일과 완성도를 높이는 작업을 진행하였습니다.",
+        info:   [{ k: "Tools", v: "3ds Max / Substance Painter / Marmoset / Unreal Engine 5" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Scifi_1.png",
           "Scifi_2.png",
@@ -222,6 +275,9 @@ const CATEGORIES = [
         title:  "Personal Objects",
         date:   "2024",
         cover:  "JewelBox.jpg",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [{ k: "Tools", v: "3ds Max / Substance Painter / Marmoset" }],
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "candlestick2.jpg",
           "candlestick_1.jpg",
@@ -234,40 +290,19 @@ const CATEGORIES = [
   },
 
   {
-    id: "designer",
-    label: "Designer",
-    dir: "images/Designer",
-    bundle: true,          // 카드 하나를 누르면 카테고리 전체가 한 묶음으로 열립니다.
-    groups: [
-      {
-        folder: "",
-        title:  "Designer Works",
-        date:   "",
-        cover:  "SubDe1.png",
-        files: [
-          "SubDe1.png",
-          "SubDe2.png",
-          "SubDe3.png",
-          "SubDe4.png",
-          "SubDe5.png",
-          "SubDe7.png",
-          "SubDe7_Red.png",
-          "SubDe8.png"
-        ]
-      }
-    ]
-  },
-
-  {
     id: "zbrush",
     label: "ZBrush Study",
     dir: "images/ZBRUSH",
+    separate: true,        // Works 아래 별도 섹션으로 뺍니다 (카드 형태)
     groups: [
       {
         folder: "",
         title:  "Rocks",
         date:   "",
         cover:  "Rock6_Render.jpg",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Rock6_Render.jpg",
           "Rock6_1.png",
@@ -284,6 +319,9 @@ const CATEGORIES = [
         title:  "Pillars",
         date:   "",
         cover:  "Zbrush3_2.png",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "Zbrush3_2.png",
           "Zbrush3_4.png"
@@ -294,11 +332,52 @@ const CATEGORIES = [
         title:  "Tile",
         date:   "",
         cover:  "ZBrush1.png",
+        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
+        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
         files: [
           "ZBrush1.png",
           "ZBrush2.png",
           "ZBrush2_Gathered.png"
         ]
+      }
+    ]
+  },
+
+  {
+    id: "designer",
+    label: "Designer",
+    dir: "images/Designer",
+    bundle:   true,        // 카드 하나를 누르면 카테고리 전체가 한 묶음으로 열립니다.
+    separate: true,        // Works 안에 섞지 않고, 아래에 별도 섹션으로 뺍니다.
+    tiles:    true,        // 제목 없이 이미지 타일로 나열합니다.
+    groups: [
+      {
+        folder: "",
+        title:  "Designer Works",
+        date:   "",
+        cover:  "SubDe1.png",
+        desc:   "나무, 돌, 철과 같은 기본적인 매터리얼의 특성에 대해 학습하였으며,\n각 재질의 거칠기, 마모와 오염 표현 차이를 사실적으로 구현하기 위해 노력하였습니다.",
+        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
+        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        files: [
+          "SubDe1.png",
+          "SubDe2.png",
+          "SubDe3.png",
+          "SubDe4.png",
+          "SubDe5.png",
+          "SubDe7.png"
+        ],
+
+        /* 색만 다른 버전.  "대표 파일": [ 버전 목록 ]
+           대표 파일만 files 에 넣어 두면, 크게 보기에서 색 전환 버튼이 생깁니다.
+           label 이 버튼에 적히는 글자입니다. */
+        variants: {
+          "SubDe7.png": [
+            { label: "Grey", file: "SubDe7.png" },
+            { label: "Red",  file: "SubDe7_Red.png" }
+          ]
+        }
       }
     ]
   }
