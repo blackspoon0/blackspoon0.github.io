@@ -140,7 +140,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:linear-gradient(135deg,#22262a,#1a1d20);}
 /* 평소에는 1.4배로 당겨서 보여주고, 마우스를 올리면 원래 크기로 물러나 전체가 보입니다 */
 .card img{position:relative;width:100%;height:100%;object-fit:cover;opacity:0;
-  transform:scale(1.4);transform-origin:center;
+  transform:scale(1.28);transform-origin:center;
   will-change:transform;backface-visibility:hidden;
   transition:transform 1s cubic-bezier(.33,0,.15,1),opacity .45s}
 .card img.ready{opacity:1}
@@ -370,6 +370,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 const $  = s => document.querySelector(s);
 const el = (t,c) => { const n=document.createElement(t); if(c) n.className=c; return n; };
 const enc = p => p.split("/").map(encodeURIComponent).join("/");
+const nImg = n => n + (n===1 ? " image" : " images");
 const useThumbs = (typeof USE_THUMBS!=="undefined") && USE_THUMBS;
 const useWeb    = (typeof USE_WEB!=="undefined")    && USE_WEB;
 const dirThumb  = (typeof THUMB_DIR!=="undefined")  ? THUMB_DIR : "thumbs";
@@ -576,7 +577,7 @@ function visible(){ return WORKS.filter(w=>!w.cat.separate); }
 function renderGrid(){
   pool=visible(); shown=0; grid.innerHTML="";
   const imgs=pool.reduce((a,w)=>a+w.images.length,0);
-  $("#workCount").textContent = pool.length+" projects · "+imgs+" images";
+  $("#workCount").textContent = pool.length+" projects · "+nImg(imgs);
   if(!pool.length){ const d=el("div","empty"); d.textContent="표시할 작업이 없습니다."; grid.appendChild(d); return; }
   appendMore(); appendMore();
 }
@@ -607,7 +608,7 @@ function makeCard(w){
   const t=el("span","title"); t.textContent=w.title;
   const s=el("span","sub");
   /* 별도 섹션 안에서는 카테고리 이름이 제목에 이미 있으므로 생략합니다 */
-  s.textContent=(w.cat.separate ? "" : w.cat.label+" · ")+w.images.length+" images";
+  s.textContent=(w.cat.separate ? "" : w.cat.label+" · ")+nImg(w.images.length);
   meta.append(d,t,s);
 
   b.append(img,badges,meta);
@@ -628,7 +629,7 @@ renderGrid();
     const h=el("h2"); h.textContent=cat.label;
     const cnt=el("span","count");
     const total=items.reduce((a,w)=>a+w.images.length,0);
-    cnt.textContent = cat.tiles ? total+" images" : items.length+" projects · "+total+" images";
+    cnt.textContent = cat.tiles ? nImg(total) : items.length+" projects · "+nImg(total);
     head.append(h,cnt); sec.appendChild(head);
 
     if(cat.tiles){

@@ -308,16 +308,31 @@ const CATEGORIES = [
     groups: [
       {
         folder: "",
-        title:  "Rocks",
+        title:  "ZBrush 6",
         date:   "",
         cover:  "Rock6_Render.jpg",
-        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
-        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
-        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        desc:   "",
+        info:   [],
+        labels: {
+          "Rock6_Render.jpg": "Render",
+          "Rock6_1.png":      "Sculpt 01",
+          "Rock6_2.png":      "Sculpt 02"
+        },
         files: [
           "Rock6_Render.jpg",
           "Rock6_1.png",
-          "Rock6_2.png",
+          "Rock6_2.png"
+        ]
+      },
+      {
+        folder: "",
+        title:  "ZBrush 5",
+        date:   "",
+        cover:  "ZBrush5_Main2.jpg",
+        desc:   "",
+        info:   [],
+        labels: {},
+        files: [
           "ZBrush5_Main2.jpg",
           "ZBrush5_Main1.jpg",
           "ZBrush5.png",
@@ -326,12 +341,25 @@ const CATEGORIES = [
       },
       {
         folder: "",
-        title:  "Pillars",
+        title:  "ZBrush 4",
+        date:   "",
+        cover:  "Zbrush4_1.png",
+        desc:   "",
+        info:   [],
+        labels: {},
+        files: [
+          "Zbrush4_1.png",
+          "ZBrush4_2.png"
+        ]
+      },
+      {
+        folder: "",
+        title:  "ZBrush 3",
         date:   "",
         cover:  "Zbrush3_2.png",
-        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
-        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
-        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        desc:   "",
+        info:   [],
+        labels: {},
         files: [
           "Zbrush3_2.png",
           "Zbrush3_4.png"
@@ -339,16 +367,27 @@ const CATEGORIES = [
       },
       {
         folder: "",
-        title:  "Tile",
+        title:  "ZBrush 2",
+        date:   "",
+        cover:  "ZBrush2_Gathered.png",
+        desc:   "",
+        info:   [],
+        labels: {},
+        files: [
+          "ZBrush2_Gathered.png",
+          "ZBrush2.png"
+        ]
+      },
+      {
+        folder: "",
+        title:  "ZBrush 1",
         date:   "",
         cover:  "ZBrush1.png",
-        desc:   "",          // 상세보기 설명 — 줄바꿈은 \n 을 넣으세요
-        info:   [],          // [{ k:"Period", v:"2026.07" }, { k:"Tools", v:"3ds Max / ZBrush" }]
-        labels: {},          // 썸네일 이름 — { "Knife1.jpg":"Detail Render" } 처럼
+        desc:   "",
+        info:   [],
+        labels: {},
         files: [
-          "ZBrush1.png",
-          "ZBrush2.png",
-          "ZBrush2_Gathered.png"
+          "ZBrush1.png"
         ]
       }
     ]
