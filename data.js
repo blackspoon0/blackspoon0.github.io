@@ -36,7 +36,7 @@ const SITE = {
   /* About 본문. 한 줄이 한 문단입니다.
      문장 안에 \n 을 넣으면 그 자리에서 줄이 바뀝니다. (좁은 화면에서는 자동으로 더 접힙니다) */
   about: [
-    "기술적 제약과 제작 기준 속에서도 디테일과 완성도를 유지하는 것이\n배경 아티스트의 역량이라고 생각하며, 이를 위해 꾸준히 발전해 나가고 있습니다."
+    "컴퓨터공학을 전공하며 익힌 개발자의 시각으로, 작업의 리소스와 파이프라인을 함께 고려합니다.\n기술적 제약과 제작 기준 속에서도 디테일과 완성도를 유지하는 것이 배경 아티스트의 역량이라고 생각하며,\n주어진 자원 안에서 최선의 결과물을 내는 것을 목표로 꾸준히 발전해 나가고 있습니다."
   ],
 
   /* About 맨 위 프로필 블록 */
@@ -301,65 +301,51 @@ const CATEGORIES = [
   },
 
   {
-    id: "zbrush",
-    label: "ZBrush Study",
+    id: "sculpt",
+    label: "Sculpt",       // Works 안에서 카드 밑에 표시되는 이름
     dir: "images/ZBRUSH",
-    separate: true,        // Works 아래 별도 섹션으로 뺍니다 (카드 형태)
     groups: [
       {
         folder: "",
-        title:  "ZBrush 6",
+        title:  "Rock",
         date:   "",
         cover:  "Rock6_Render.jpg",
         desc:   "",
         info:   [],
         labels: {
-          "Rock6_Render.jpg": "Render",
-          "Rock6_1.png":      "Sculpt 01",
-          "Rock6_2.png":      "Sculpt 02"
+          "Rock6_Render.jpg":   "Rock 1",
+          "Rock6_1.png":        "Rock 2",
+          "Rock6_2.png":        "Rock 3",
+          "ZBrush5_Main2.jpg":  "Rock 4",
+          "ZBrush5_Main1.jpg":  "Rock 5",
+          "ZBrush5.png":        "Rock 6",
+          "ZBrush5_ZBrush.jpg": "Rock 7",
+          "Zbrush4_1.png":      "Rock 8",
+          "ZBrush4_2.png":      "Rock 9"
         },
         files: [
           "Rock6_Render.jpg",
           "Rock6_1.png",
-          "Rock6_2.png"
-        ]
-      },
-      {
-        folder: "",
-        title:  "ZBrush 5",
-        date:   "",
-        cover:  "ZBrush5_Main2.jpg",
-        desc:   "",
-        info:   [],
-        labels: {},
-        files: [
+          "Rock6_2.png",
           "ZBrush5_Main2.jpg",
           "ZBrush5_Main1.jpg",
           "ZBrush5.png",
-          "ZBrush5_ZBrush.jpg"
-        ]
-      },
-      {
-        folder: "",
-        title:  "ZBrush 4",
-        date:   "",
-        cover:  "Zbrush4_1.png",
-        desc:   "",
-        info:   [],
-        labels: {},
-        files: [
+          "ZBrush5_ZBrush.jpg",
           "Zbrush4_1.png",
           "ZBrush4_2.png"
         ]
       },
       {
         folder: "",
-        title:  "ZBrush 3",
+        title:  "Pillar",
         date:   "",
         cover:  "Zbrush3_2.png",
         desc:   "",
         info:   [],
-        labels: {},
+        labels: {
+          "Zbrush3_2.png": "Pillar 1",
+          "Zbrush3_4.png": "Pillar 2"
+        },
         files: [
           "Zbrush3_2.png",
           "Zbrush3_4.png"
@@ -367,26 +353,19 @@ const CATEGORIES = [
       },
       {
         folder: "",
-        title:  "ZBrush 2",
+        title:  "Tile",
         date:   "",
         cover:  "ZBrush2_Gathered.png",
         desc:   "",
         info:   [],
-        labels: {},
+        labels: {
+          "ZBrush2_Gathered.png": "Tile 1",
+          "ZBrush2.png":          "Tile 2",
+          "ZBrush1.png":          "Tile 3"
+        },
         files: [
           "ZBrush2_Gathered.png",
-          "ZBrush2.png"
-        ]
-      },
-      {
-        folder: "",
-        title:  "ZBrush 1",
-        date:   "",
-        cover:  "ZBrush1.png",
-        desc:   "",
-        info:   [],
-        labels: {},
-        files: [
+          "ZBrush2.png",
           "ZBrush1.png"
         ]
       }
